@@ -4,7 +4,10 @@ import { editMessage } from 'react-chat-engine'
 
 import { Button, TextInput } from 'react-chat-engine'
 
+import { ChatEngineContext } from '../../../Context'
+
 const MessageEditForm = props => {
+  const { translate } = useContext(ChatEngineContext)
   const [value, setValue] = useState('')
 
   function handleChange(event) {
@@ -26,12 +29,12 @@ const MessageEditForm = props => {
     <form onSubmit={handleSubmit.bind(this)}>
       <TextInput
         type="text"
-        label='Edit message...'
+        label={translate('Edit message...')}
         value={value}
         style={{ width: 'calc(100% - 84px)' }}
         handleChange={handleChange.bind(this)}
       />
-      <Button type="submit" value="Edit" />
+      <Button type="submit" value={translate('Edit')} />
     </form>
   );
 }

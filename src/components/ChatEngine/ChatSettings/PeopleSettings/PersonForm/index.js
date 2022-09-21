@@ -46,7 +46,7 @@ const PersonForm = props => {
     <div style={{ marginBottom: '12px' }}>
       <AutoCompleteInput 
         style={{ width: '100%' }}
-        label='Type a username'
+        label={translate('Type a username')}
         value={state.value}
         options={state.others}
         onFocus={() => getOthers()}

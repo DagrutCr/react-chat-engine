@@ -7,7 +7,7 @@ import { ChatEngineContext } from '../../../Context'
 import { newChat, Button, TextInput } from 'react-chat-engine'
 
 const NewChatForm = (props) => {
-  const { conn } = useContext(ChatEngineContext)
+  const { conn, translate } = useContext(ChatEngineContext)
   const [value, setValue] = useState('')
   const [selected, setSelected] = useState(false)
   
@@ -53,7 +53,7 @@ const NewChatForm = (props) => {
           <form onSubmit={handleSubmit.bind(this)}> 
               <TextInput 
                 autoFocus
-                label='Chat Title'
+                label={translate('Chat Title')}
                 value={value}
                 id='ce-new-chat-title-field'
                 onBlur={() => setSelected(false)}
@@ -64,7 +64,7 @@ const NewChatForm = (props) => {
           <div>
             <div style={{ height: '0px' }}>
               <div style={{ fontWeight: '600', fontSize: '24px', position: 'relative', top: '4px', width: 'calc(100% - 48px)' }}>
-                My Chats
+                {translate('My Chats')}
               </div>
             </div>
 

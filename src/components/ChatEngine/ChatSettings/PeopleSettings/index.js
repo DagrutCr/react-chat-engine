@@ -8,7 +8,7 @@ import PersonForm from './PersonForm'
 import SettingsBlock from '../SettingsBlock'
 
 const PeopleSettings = () => {
-    const { conn, chats, activeChat } = useContext(ChatEngineContext)  
+    const { conn, chats, activeChat, translate } = useContext(ChatEngineContext)  
     const chat = chats && chats[activeChat] 
 
     if (!chat || chat.is_direct_chat) { return <div /> }
@@ -31,7 +31,7 @@ const PeopleSettings = () => {
             style={{ borderTop: '1px solid #f0f0f0' }}
         >
             <SettingsBlock
-                label='People'
+                label={translate('People')}
                 className='ce-section-title-container ce-person-title-container'
             >
                 <div>

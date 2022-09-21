@@ -25,6 +25,7 @@ export const ChatEngineWrapper = props => {
         typingCounter, setTypingCounter,
         loadMoreMessages, setLoadMoreMessages,
         isBottomVisible, setIsBottomVisible,
+        translate: props.translateCallback || (x => x),
     }
 
     return (

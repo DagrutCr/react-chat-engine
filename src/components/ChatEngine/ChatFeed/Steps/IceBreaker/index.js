@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useContext } from 'react'
 
 const IceBreaker = () => {
+    const { translate } = useContext(ChatEngineContext)
     return (
         <div
             id='ce-ice-breaker-chat'
@@ -10,7 +11,7 @@ const IceBreaker = () => {
                 id='ce-ice-breaker-text' 
                 style={{ color: '#afafaf', fontWeight: '600', fontSize: '14px', marginBottom: '6px' }}
             >
-                No messages here yet...
+                {translate('No messages here yet...')}
             </div>
         </div>   
     )

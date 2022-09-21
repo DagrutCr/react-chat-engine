@@ -8,7 +8,7 @@ const ChatEngineApp = (props) => {
     if (useContext(ChatEngineContext)) {
         return <ChatEngine {...props} />
     } else {
-        return <ChatEngineWrapper><ChatEngine {...props} /></ChatEngineWrapper>
+        return <ChatEngineWrapper {...props}><ChatEngine {...props} /></ChatEngineWrapper>
     }
     
 }

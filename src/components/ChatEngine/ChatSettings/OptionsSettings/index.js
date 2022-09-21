@@ -5,7 +5,7 @@ import { Button, deleteChat, ChatEngineContext } from 'react-chat-engine'
 import SettingsBlock from '../SettingsBlock'
 
 const OptionsSettings = () => {
-    const { conn, chats, activeChat } = useContext(ChatEngineContext)  
+    const { conn, chats, activeChat, translate } = useContext(ChatEngineContext)  
     const chat = chats && chats[activeChat] 
 
     if (!chat) return <div />
@@ -14,13 +14,13 @@ const OptionsSettings = () => {
         <div style={{ borderTop: '1px solid #f0f0f0' }}>
             <SettingsBlock 
                 id='ce-options-drop-down'
-                label='Options'
+                label={translate('Options')}
             >
                 <div>
                     <div style={{ height: '8px' }} />
 
                     <Button 
-                        value="Delete" 
+                        value={translate('Delete')}
                         theme='danger'
                         icon='delete'
                         id='ce-delete-chat-button'

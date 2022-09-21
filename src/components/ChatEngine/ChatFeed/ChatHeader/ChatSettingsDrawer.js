@@ -9,6 +9,7 @@ import ChatSettings from '../../ChatSettings'
 const ChatSettingsDrawer = props => {
     const {chatSettingsIsOpen, setChatSettingsIsOpen} = props
     const context = useContext(ChatEngineContext)
+    const { translate } = context;
     const allProps = {...props, ...context.conn}
 
     return (
@@ -23,7 +24,7 @@ const ChatSettingsDrawer = props => {
 
                     <div style={styles.titleContainer}>
                         <div style={styles.titleText}>
-                            Chat Settings
+                        {translate('Chat Settings')}
                         </div>
                     </div>
 

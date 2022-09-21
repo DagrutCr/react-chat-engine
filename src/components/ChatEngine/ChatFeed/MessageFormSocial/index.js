@@ -11,7 +11,7 @@ import ImagesInput from './ImagesInput'
 import MessageInput from './MessageInput'
 
 const MessageFormSocial = () => {
-  const { conn, activeChat, messages, setMessages } = useContext(ChatEngineContext)
+  const { conn, activeChat, messages, setMessages, translate } = useContext(ChatEngineContext)
 
   const [iter, setIter] = useState(0) // Forces attachments update
   const [value, setValue] = useState('')
@@ -92,7 +92,7 @@ const MessageFormSocial = () => {
 
           <MessageInput
             value={value}
-            label='Send a message...'
+            label={translate('Send a message...')}
             handleChange={handleChange.bind(this)}
             onSubmit={handleSubmit.bind(this)}
           />
