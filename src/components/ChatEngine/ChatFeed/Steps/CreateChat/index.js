@@ -1,31 +1,39 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { newChat } from '../../../../../actions/chats'
+import { TextInput } from '../../../../../components/ChatEngine/components/Input'
+import Button from '../../../../../components/ChatEngine/components/Button'
 
-const CreateChat = () => {
+const CreateChat = (props) => {
+    const { conn } = props;
+    const [title, setTitle] = useState('');
+
+    function onSubmit(event) {
+        event.preventDefault();
+        if (title) {
+            newChat(
+                conn,
+                { title },
+            );
+        }
+    }
+
+    function onChange(event) {
+        setTitle(event.target.value);
+    }
+
     return (
-        <div
-            id='ce-ice-breaker' 
-            style={{ width: '100%', textAlign: 'center', paddingTop: 'calc(43% - 112px)' }}
-        >
-            <div 
-                id='ce-ice-breaker-text' 
-                style={{ color: '#afafaf', fontWeight: '600', marginBottom: '6px' }}
-            >
-                Welcome!
-            </div>
-            <div 
-                id='ce-ice-breaker-text' 
-                style={{ color: '#afafaf' }}
-            >
-                Create a new chat to get started.
-            </div>
-
-            <img
-                id='ce-ice-breaker-gif' 
-                style={{ width: '50%', maxWidth: '200px' }}
-                src='https://chat-engine-assets.s3.amazonaws.com/welcome_gifs/okay.gif'
-                alt='chat-engine-ice-breaker'
-            />
-        </div>   
+        <div class='ce-ice-breaker-no-chat'>
+            <form onSubmit={onSubmit}>
+                <b>No chat room found, start by creating one</b>
+                <br />
+                <TextInput
+                    type="text"
+                    label="Chat room name"
+                    handleChange={onChange}
+                />
+                <Button type="submit" value="Create" />
+            </form>
+        </div>
     )
 }
 

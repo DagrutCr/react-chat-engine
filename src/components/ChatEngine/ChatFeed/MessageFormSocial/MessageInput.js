@@ -51,7 +51,6 @@ const styles = {
         width: 'calc(100% - 100px)',
         outline: 'none', 
         fontSize: '15px',
-        fontFamily: 'Avenir',
         paddingLeft: '12px',
         paddingRight: '12px',
         position: 'relative', 

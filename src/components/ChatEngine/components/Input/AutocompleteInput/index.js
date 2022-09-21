@@ -107,8 +107,7 @@ const styles = {
         outline: 'none',
         borderRadius: '24px',
         padding: '0px 12px',
-        boxSizing: 'border-box',
-        fontFamily: 'Avenir'
+        boxSizing: 'border-box'
     },
     close: {
         cursor: 'pointer',

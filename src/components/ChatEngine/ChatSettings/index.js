@@ -57,7 +57,6 @@ const styles = {
         overflow: 'scroll',
         overflowX: 'hidden',
         borderLeft: '1px solid #afafaf',
-        backgroundColor: 'white',
-        fontFamily: 'Avenir'
+        backgroundColor: 'white'
     }
 }

@@ -7,27 +7,22 @@ import { ChatEngineContext } from '../../../Context'
 import ChatList from '../../ChatList'
 
 const ChatListDrawer = props => {
-    const [isOpen, setIsOpen] = useState(false)
+    const {chatListIsOpen, setChatListIsOpen} = props
     const context = useContext(ChatEngineContext)
     const allProps = {...props, ...context.conn}
 
     return (
-        <div> 
-            <MenuOutlined
-                onClick={() => setIsOpen(true)}
-                style={{ color: 'rgb(24, 144, 255)', outline: 'none' }} 
-            />
-
+        <div>
             { 
-                isOpen &&
+                chatListIsOpen &&
                 <div style={styles.drawerContainer}>
                     {
                         context.conn !== null && context.conn.renderChatList ?
                         context.conn.renderChatList(context) :
                         <ChatList 
                             {...allProps} 
-                            onClose={() => setIsOpen(false)} 
-                            onChatClick={() => setIsOpen(false)} 
+                            onClose={() => setChatListIsOpen(false)} 
+                            onChatClick={() => setChatListIsOpen(false)} 
                         />
                     }
                 </div>
@@ -40,7 +35,7 @@ export default ChatListDrawer
 
 const styles = {
     drawerContainer: { 
-        position: 'fixed',
+        position: 'absolute',
         zIndex: '1',
         top: '0px',
         left: '0px',

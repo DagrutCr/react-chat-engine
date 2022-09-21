@@ -7,6 +7,8 @@ import { AuthFail, CreateChat, IceBreaker } from './Steps'
 import { RenderTrigger } from './Triggers'
 
 import ChatHeader from './ChatHeader'
+import ChatListDrawer from './ChatHeader/ChatListDrawer'
+import ChatSettingsDrawer from './ChatHeader/ChatSettingsDrawer'
 import Messages from './Messages'
 import IsTyping from './IsTyping'
 import NewMessageForm from './NewMessageForm'
@@ -23,6 +25,8 @@ const interval = 33
 
 const ChatFeed = props => {
     const [hasFetchedMessages, setHasFetchedMessages] = useState(false)
+    const [chatListIsOpen, setChatListIsOpen] = useState(false)
+    const [chatSettingsIsOpen, setChatSettingsIsOpen] = useState(false)
     const [currentChat, setCurrentChat] = useState(null)
     const {
         conn,
@@ -131,9 +135,8 @@ const ChatFeed = props => {
     if (conn === undefined) {
         return <AuthFail {...props} />
 
-    } else if (conn && chats !== null && _.isEmpty(chats)) {
-        return <CreateChat />
-
+    } else if (conn && chats !== null && Object.values(chats).filter(a => a).length === 0) {
+        return <CreateChat conn={conn} />
     }
 
     return (
@@ -141,7 +144,22 @@ const ChatFeed = props => {
             className='ce-chat-feed'
             style={{ height: '100%', maxHeight: '100vh', backgroundColor: '#f0f0f0' }}
         >
-            {props.renderChatHeader ? props.renderChatHeader(chat) : <ChatHeader />}
+            {
+                props.renderChatHeader
+                    ? props.renderChatHeader(chat, {
+                        chatListIsOpen,
+                        setChatListIsOpen,
+                        chatSettingsIsOpen,
+                        setChatSettingsIsOpen,
+                    })
+                    : <ChatHeader
+                        setChatListIsOpen={setChatListIsOpen}
+                        setChatSettingsIsOpen={setChatSettingsIsOpen}
+                    />
+            }
+
+            <ChatListDrawer chatListIsOpen={chatListIsOpen} setChatListIsOpen={setChatListIsOpen} />
+            <ChatSettingsDrawer chatSettingsIsOpen={chatSettingsIsOpen} setChatSettingsIsOpen={setChatSettingsIsOpen} />
 
             <div
                 id='ce-feed-container'

@@ -46,7 +46,7 @@ const ChatCard = props => {
     }
 
     return (
-        <Boop triggers={['onClick', 'onMouseEnter']} x={3} timing={60} width={'-webkit-fill-available'}>
+        <Boop triggers={['onClick', 'onMouseEnter']} x={3} timing={60} width="100%">
             <div 
                 onClick={() => setActiveChat(chat.id)}
                 style={{ ...styles.chatContainer, ...extraStyle }}

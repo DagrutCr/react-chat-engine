@@ -43,7 +43,7 @@ const ChatList = props => {
         if (!loadChats || loadChats === 'loading') return;
         setLoadChats('loading')
 
-        const chatList = chats !== null ? sortChats(Object.values(chats)) : []
+        const chatList = (chats !== null ? sortChats(Object.values(chats)) : []).filter(a => a)
         if (chatList.length > 0) {
             const before = chatList[chatList.length - 1].created
             getChatsBefore(props, before, interval, (chats) => onGetChats(chats))
@@ -119,8 +119,7 @@ const styles={
         overflow: 'scroll', 
         overflowX: 'hidden',
         borderRight: '1px solid #afafaf', 
-        backgroundColor: 'white',
-        fontFamily: 'Avenir'
+        backgroundColor: 'white'
     },
     chatsContainer: { 
         width: '100%', 

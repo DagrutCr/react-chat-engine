@@ -7,23 +7,18 @@ import { ChatEngineContext } from 'react-chat-engine'
 import ChatSettings from '../../ChatSettings'
 
 const ChatSettingsDrawer = props => {
-    const [isOpen, setIsOpen] = useState(false)
+    const {chatSettingsIsOpen, setChatSettingsIsOpen} = props
     const context = useContext(ChatEngineContext)
     const allProps = {...props, ...context.conn}
 
     return (
         <div> 
-            <SettingOutlined
-                onClick={() => setIsOpen(true)}
-                style={{ color: 'rgb(24, 144, 255)', outline: 'none' }} 
-            />
-
             { 
-                isOpen &&
+                chatSettingsIsOpen &&
                 <div style={styles.drawerContainer}>
                     <CloseOutlined
                         style={styles.closeIcon}
-                        onClick={() => setIsOpen(false)}
+                        onClick={() => setChatSettingsIsOpen(false)}
                     />
 
                     <div style={styles.titleContainer}>
@@ -47,7 +42,7 @@ export default ChatSettingsDrawer
 
 const styles = {
     drawerContainer: { 
-        position: 'fixed',
+        position: 'absolute',
         zIndex: '1',
         top: '0px',
         left: '0px',

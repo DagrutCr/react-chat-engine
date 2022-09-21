@@ -2,8 +2,8 @@ import React, { useContext } from 'react'
 
 import { ChatEngineContext } from 'react-chat-engine'
 
-import ChatListDrawer from './ChatListDrawer'
-import ChatSettingsDrawer from './ChatSettingsDrawer'
+import ChatListDrawerButton from './ChatListDrawerButton'
+import ChatSettingsDrawerButton from './ChatSettingsDrawerButton'
 
 import { getDateTime, formatDateTime } from '../../Utilities/timezone'
 
@@ -15,7 +15,7 @@ import { setConfiguration } from 'react-grid-system';
 
 setConfiguration({ maxScreenClass: 'xl', gutterWidth: 0 });
 
-const ChatHeader = () => {
+const ChatHeader = (props) => {
     const { conn, chats, activeChat } = useContext(ChatEngineContext)
 
     const chat = chats ? chats[activeChat] : undefined
@@ -41,7 +41,7 @@ const ChatHeader = () => {
                 style={{ ...styles.mobileOptiom, ...{ left: '6px' } }}
                 className='ce-chat-list-mobile-option'
             >
-                <ChatListDrawer />
+                <ChatListDrawerButton setIsOpen={props.setChatListIsOpen} />
             </Col>
 
             <Col
@@ -67,7 +67,7 @@ const ChatHeader = () => {
                 style={{ ...styles.mobileOptiom, ...{ right: '6px' } }}
                 className='ce-chat-settings-mobile-option'
             >
-                <ChatSettingsDrawer />
+                <ChatSettingsDrawerButton setIsOpen={props.setChatSettingsIsOpen} />
             </Col>
         </Row>
     );
