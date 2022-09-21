@@ -12,8 +12,8 @@ const AuthFail = (props) => {
                 id='ce-login-fail-text' 
                 style={{ color: '#afafaf', fontWeight: '600', fontSize: '14px', marginBottom: '6px', marginRight: '32px', marginLeft: '32px' }}
             >
-                {translate('Your credentials are incorrect. Make sure your Project ID, Username, and Password are correct ')}
-                <a href={`https://chatengine.io/projects/${project}`}>{translate('here')}</a>.
+                {translate('Your credentials are incorrect. Make sure your Project ID, Username, and Password are correct ', 'AuthFail')}
+                <a href={`https://chatengine.io/projects/${project}`}>{translate('here', 'AuthFail')}</a>.
             </div>
 
             <img

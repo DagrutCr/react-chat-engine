@@ -14,13 +14,13 @@ const OptionsSettings = () => {
         <div style={{ borderTop: '1px solid #f0f0f0' }}>
             <SettingsBlock 
                 id='ce-options-drop-down'
-                label={translate('Options')}
+                label={translate('Options', 'OptionsSettings')}
             >
                 <div>
                     <div style={{ height: '8px' }} />
 
                     <Button 
-                        value={translate('Delete')}
+                        value={translate('Delete', 'OptionsSettings')}
                         theme='danger'
                         icon='delete'
                         id='ce-delete-chat-button'

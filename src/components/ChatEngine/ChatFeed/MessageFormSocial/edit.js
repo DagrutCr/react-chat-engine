@@ -29,12 +29,12 @@ const MessageEditForm = props => {
     <form onSubmit={handleSubmit.bind(this)}>
       <TextInput
         type="text"
-        label={translate('Edit message...')}
+        label={translate('Edit message...', 'MessageEditForm')}
         value={value}
         style={{ width: 'calc(100% - 84px)' }}
         handleChange={handleChange.bind(this)}
       />
-      <Button type="submit" value={translate('Edit')} />
+      <Button type="submit" value={translate('Edit', 'MessageEditForm')} />
     </form>
   );
 }

@@ -24,7 +24,7 @@ const ChatSettingsDrawer = props => {
 
                     <div style={styles.titleContainer}>
                         <div style={styles.titleText}>
-                        {translate('Chat Settings')}
+                        {translate('Chat Settings', 'ChatSettingsDrawer')}
                         </div>
                     </div>
 

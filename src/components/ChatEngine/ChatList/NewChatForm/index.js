@@ -53,7 +53,7 @@ const NewChatForm = (props) => {
           <form onSubmit={handleSubmit.bind(this)}> 
               <TextInput 
                 autoFocus
-                label={translate('Chat Title')}
+                label={translate('Chat Title', 'NewChatForm')}
                 value={value}
                 id='ce-new-chat-title-field'
                 onBlur={() => setSelected(false)}
@@ -64,7 +64,7 @@ const NewChatForm = (props) => {
           <div>
             <div style={{ height: '0px' }}>
               <div style={{ fontWeight: '600', fontSize: '24px', position: 'relative', top: '4px', width: 'calc(100% - 48px)' }}>
-                {translate('My Chats')}
+                {translate('My Chats', 'NewChatForm')}
               </div>
             </div>
 

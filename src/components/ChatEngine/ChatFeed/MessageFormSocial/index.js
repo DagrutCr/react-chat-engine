@@ -92,7 +92,7 @@ const MessageFormSocial = () => {
 
           <MessageInput
             value={value}
-            label={translate('Send a message...')}
+            label={translate('Send a message...', 'MessageFormSocial')}
             handleChange={handleChange.bind(this)}
             onSubmit={handleSubmit.bind(this)}
           />

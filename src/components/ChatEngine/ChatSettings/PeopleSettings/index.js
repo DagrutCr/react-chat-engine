@@ -31,7 +31,7 @@ const PeopleSettings = () => {
             style={{ borderTop: '1px solid #f0f0f0' }}
         >
             <SettingsBlock
-                label={translate('People')}
+                label={translate('People', 'PeopleSettings')}
                 className='ce-section-title-container ce-person-title-container'
             >
                 <div>

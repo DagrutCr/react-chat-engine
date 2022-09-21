@@ -11,7 +11,7 @@ const IceBreaker = () => {
                 id='ce-ice-breaker-text' 
                 style={{ color: '#afafaf', fontWeight: '600', fontSize: '14px', marginBottom: '6px' }}
             >
-                {translate('No messages here yet...')}
+                {translate('No messages here yet...', 'IceBreaker')}
             </div>
         </div>   
     )
