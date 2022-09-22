@@ -2,7 +2,7 @@ import React, { useState, useContext } from 'react'
 
 import { ChatEngineContext } from 'react-chat-engine'
 
-import { getDateTime, formatTime } from '../../../Utilities/timezone'
+import { getDateTime } from '../../../Utilities/timezone'
 
 import { getFileName, isImage } from './file'
 
@@ -19,7 +19,7 @@ setConfiguration({ maxScreenClass: 'xl' })
 
 
 const TheirMessage = props => {
-    const { conn } = useContext(ChatEngineContext)
+    const { formatDateTime } = useContext(ChatEngineContext)
     const [hovered, setHovered] = useState(false)
 
     function renderReads() {
@@ -140,7 +140,7 @@ const TheirMessage = props => {
                             ...{ opacity: hovered ? '1' : '0' }
                         }}
                     >
-                        {formatTime(getDateTime(message.created))}
+                        {formatDateTime(getDateTime(message.created), 'time')}
                     </span>
                 </Col>
 

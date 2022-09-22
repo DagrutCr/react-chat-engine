@@ -14,7 +14,7 @@ const { htmlToText } = require('html-to-text')
 
 const ChatCard = props => {
     const { chat } = props
-    const { conn, activeChat, setActiveChat } = useContext(ChatEngineContext)
+    const { conn, activeChat, setActiveChat, formatDateTime } = useContext(ChatEngineContext)
 
     if (_.isEmpty(chat) || props.loading) return <Loading />
     if (!conn || conn === null) return <div/>
@@ -41,8 +41,8 @@ const ChatCard = props => {
     }
 
     function daySinceSent(date) {
-        if (!date) return ''
-        return getDateTime(date).toString().substr(4, 6)
+        if (!date) return '';
+        return (formatDateTime(getDateTime(date), 'ago'));
     }
 
     return (

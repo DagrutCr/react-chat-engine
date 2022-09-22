@@ -5,7 +5,7 @@ import { ChatEngineContext } from 'react-chat-engine'
 import ChatListDrawerButton from './ChatListDrawerButton'
 import ChatSettingsDrawerButton from './ChatSettingsDrawerButton'
 
-import { getDateTime, formatDateTime } from '../../Utilities/timezone'
+import { getDateTime } from '../../Utilities/timezone'
 
 import { LoadingOutlined } from '@ant-design/icons'
 
@@ -16,7 +16,7 @@ import { setConfiguration } from 'react-grid-system';
 setConfiguration({ maxScreenClass: 'xl', gutterWidth: 0 });
 
 const ChatHeader = (props) => {
-    const { conn, chats, activeChat, translate } = useContext(ChatEngineContext)
+    const { conn, chats, activeChat, translate, formatDateTime } = useContext(ChatEngineContext)
 
     const chat = chats ? chats[activeChat] : undefined
     const otherPerson = chat && conn && chat.people.find(person => person.person.username !== conn.userName)
@@ -27,7 +27,7 @@ const ChatHeader = (props) => {
         text = translate('Loading...', 'ChatHeader')
     } else if (chat.last_message.created && chat.last_message.created.length > 0) {
         const dateTime = getDateTime(chat.last_message.created)
-        text = `${translate('Active', 'ChatHeader')} ${formatDateTime(dateTime)}`
+        text = `${translate('Active', 'ChatHeader')} ${formatDateTime(dateTime, 'ago')}`
     }
 
     return (

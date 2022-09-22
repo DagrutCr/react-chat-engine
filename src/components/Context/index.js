@@ -1,5 +1,12 @@
 import React, { useState, createContext } from 'react'
 
+import {
+    formatTime as internalFormatTime,
+    formatDate as internalFormatDate,
+    formatDateTime as internalFormatDateTime,
+    formatDateTimeAgo as internalFormatDateTimeAgo,
+} from '../ChatEngine/Utilities/timezone';
+
 export const ChatEngineContext = createContext()
 
 export const ChatEngineWrapper = props => {
@@ -25,6 +32,25 @@ export const ChatEngineWrapper = props => {
         return (translated);
     };
 
+    const formatDateTime = (dateObj, format) => {
+        if (props.formatDateTime) {
+            return (props.formatDateTime(dateObj, format));
+        }
+
+        switch (format) {
+            case 'date':
+                return (internalFormatDate(dateObj));
+            case 'time':
+                return (internalFormatTime(dateObj));
+            case 'datetime':
+                return (internalFormatDateTime(dateObj));
+            case 'ago':
+                return (internalFormatDateTimeAgo(dateObj));
+            default:
+                return ('');
+        }
+    };
+
     const value = {
         connecting, setConnecting,
         conn, setConn,
@@ -37,6 +63,7 @@ export const ChatEngineWrapper = props => {
         loadMoreMessages, setLoadMoreMessages,
         isBottomVisible, setIsBottomVisible,
         translate,
+        formatDateTime,
     }
 
     return (

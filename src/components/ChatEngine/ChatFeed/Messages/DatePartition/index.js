@@ -1,7 +1,10 @@
-import React from 'react'
-import { getDateTime, formatDateTime } from '../../../Utilities/timezone'
+import React, { useContext } from 'react'
+import { getDateTime } from '../../../Utilities/timezone'
+
+import { ChatEngineContext } from 'react-chat-engine'
 
 const DatePartition = props => {
+    const { formatDateTime } = useContext(ChatEngineContext)
     const { lastCreated, created } = props
 
     function getDate(date) {
@@ -15,7 +18,7 @@ const DatePartition = props => {
 
     return (
         <div style={styles.dateText} className='ce-message-date-text'>
-            { formatDateTime(getDateTime(created)) }
+            { formatDateTime(getDateTime(created), 'datetime') }
         </div>
     )
 }

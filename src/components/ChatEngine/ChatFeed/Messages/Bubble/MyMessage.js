@@ -10,7 +10,7 @@ import Thumbnail from './Thumbnail'
 import FileView from './FileView'
 
 import Dot from '../../../components/Avatar/Dot'
-import { getDateTime, formatTime } from '../../../Utilities/timezone'
+import { getDateTime } from '../../../Utilities/timezone'
 
 import Body from './Body'
 
@@ -19,7 +19,7 @@ import { Row, Col, setConfiguration } from 'react-grid-system'
 setConfiguration({ maxScreenClass: 'xl' })
 
 const Message = props => {
-    const { conn } = useContext(ChatEngineContext)
+    const { formatDateTime } = useContext(ChatEngineContext)
     const [hovered, setHovered] = useState(false)
 
     function renderReads() {
@@ -109,7 +109,7 @@ const Message = props => {
                             ...{ opacity: hovered ? '1' : '0' }
                         }}
                     >
-                        {formatTime(getDateTime(message.created))}
+                        {formatDateTime(getDateTime(message.created), 'time')}
                     </span>
 
                     {   // TODO: What is !attachments for?
