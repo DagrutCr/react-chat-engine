@@ -8,7 +8,7 @@ import SettingsBlock from '../SettingsBlock'
 
 
 const PhotosSettings = () => {
-    const { chats, activeChat } = useContext(ChatEngineContext)  
+    const { chats, activeChat, translate } = useContext(ChatEngineContext)  
     const chat = chats && chats[activeChat] 
 
     if (!chat) return <div />

@@ -52,8 +52,8 @@ const ChatList = props => {
 
     function sortChats(chats) {
         return chats.sort((a, b) => { 
-            const aDate = a.last_message && a.last_message.created ? getDateTime(a.last_message.created, props.offset) : getDateTime(a.created, props.offset)
-            const bDate = b.last_message && b.last_message.created ? getDateTime(b.last_message.created, props.offset) : getDateTime(b.created, props.offset)
+            const aDate = a.last_message && a.last_message.created ? getDateTime(a.last_message.created) : getDateTime(a.created)
+            const bDate = b.last_message && b.last_message.created ? getDateTime(b.last_message.created) : getDateTime(b.created)
             return new Date(bDate) - new Date(aDate); 
         })
     }

@@ -1,5 +1,7 @@
 import React, { useContext } from 'react'
 
+import { ChatEngineContext } from 'react-chat-engine'
+
 const IceBreaker = () => {
     const { translate } = useContext(ChatEngineContext)
     return (

@@ -140,7 +140,7 @@ const TheirMessage = props => {
                             ...{ opacity: hovered ? '1' : '0' }
                         }}
                     >
-                        {formatTime(getDateTime(message.created, conn !== null && conn.offset))}
+                        {formatTime(getDateTime(message.created))}
                     </span>
                 </Col>
 

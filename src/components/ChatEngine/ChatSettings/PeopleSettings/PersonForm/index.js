@@ -1,5 +1,7 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import PropTypes from 'prop-types'
+
+import { ChatEngineContext } from 'react-chat-engine'
 
 import { addPerson, getOtherPeople } from 'react-chat-engine'
 
@@ -8,6 +10,7 @@ import { AutoCompleteInput } from 'react-chat-engine'
 import PersonOption from './PersonOption'
 
 const PersonForm = props => {
+  const { translate } = useContext(ChatEngineContext) 
   const [state, setState] = useState({
     value: '',
     others: []

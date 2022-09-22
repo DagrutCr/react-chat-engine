@@ -16,18 +16,18 @@ import { setConfiguration } from 'react-grid-system';
 setConfiguration({ maxScreenClass: 'xl', gutterWidth: 0 });
 
 const ChatHeader = (props) => {
-    const { conn, chats, activeChat } = useContext(ChatEngineContext)
+    const { conn, chats, activeChat, translate } = useContext(ChatEngineContext)
 
     const chat = chats ? chats[activeChat] : undefined
     const otherPerson = chat && conn && chat.people.find(person => person.person.username !== conn.userName)
     const title = chat ? (chat.is_direct_chat && otherPerson ? otherPerson.person.username : chat.title) : undefined
 
-    var text = 'Say hello!'
+    var text = translate('Say hello!', 'ChatHeader')
     if (!chat) {
-        text = 'Loading...'
+        text = translate('Loading...', 'ChatHeader')
     } else if (chat.last_message.created && chat.last_message.created.length > 0) {
-        const dateTime = getDateTime(chat.last_message.created, conn ? conn.offset : undefined)
-        text = `Active ${formatDateTime(dateTime)}`
+        const dateTime = getDateTime(chat.last_message.created)
+        text = `${translate('Active', 'ChatHeader')} ${formatDateTime(dateTime)}`
     }
 
     return (

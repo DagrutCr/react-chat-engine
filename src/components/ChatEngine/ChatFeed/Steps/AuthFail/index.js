@@ -1,5 +1,7 @@
 import React, { useContext } from 'react'
 
+import { ChatEngineContext } from 'react-chat-engine'
+
 const AuthFail = (props) => {
     const { translate } = useContext(ChatEngineContext)
     const project = props.projectID ? props.projectID : props.publicKey
@@ -12,8 +14,16 @@ const AuthFail = (props) => {
                 id='ce-login-fail-text' 
                 style={{ color: '#afafaf', fontWeight: '600', fontSize: '14px', marginBottom: '6px', marginRight: '32px', marginLeft: '32px' }}
             >
-                {translate('Your credentials are incorrect. Make sure your Project ID, Username, and Password are correct ', 'AuthFail')}
-                <a href={`https://chatengine.io/projects/${project}`}>{translate('here', 'AuthFail')}</a>.
+                {translate(
+                    'Your credentials are incorrect. Make sure your Project ID, Username, and Password are correct here',
+                    'AuthFail',
+                    (
+                        <>
+                            Your credentials are incorrect. Make sure your Project ID, Username, and Password are correct
+                            <a href={`https://chatengine.io/projects/${project}`}>here</a>
+                        </>
+                    )
+                )}
             </div>
 
             <img

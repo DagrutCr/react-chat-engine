@@ -15,7 +15,7 @@ const DatePartition = props => {
 
     return (
         <div style={styles.dateText} className='ce-message-date-text'>
-            { formatDateTime(getDateTime(created, props.offset)) }
+            { formatDateTime(getDateTime(created)) }
         </div>
     )
 }

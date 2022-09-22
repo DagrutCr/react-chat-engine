@@ -62,12 +62,12 @@ const Socket = (props) => {
   function sortChats(chats) {
     return Object.values(chats).sort((a, b) => {
       const aDate = a.last_message.created
-        ? getDateTime(a.last_message.created, props.offset)
-        : getDateTime(a.created, props.offset)
+        ? getDateTime(a.last_message.created)
+        : getDateTime(a.created)
       const bDate = b.last_message.created
-        ? getDateTime(b.last_message.created, props.offset)
-        : getDateTime(b.created, props.offset)
-      return new Date(bDate) - new Date(aDate)
+        ? getDateTime(b.last_message.created)
+        : getDateTime(b.created)
+      return (bDate.getTime() - aDate.getTime());
     })
   }
 

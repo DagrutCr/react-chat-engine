@@ -42,7 +42,7 @@ const ChatCard = props => {
 
     function daySinceSent(date) {
         if (!date) return ''
-        return getDateTime(date, conn.offset).toString().substr(4, 6)
+        return getDateTime(date).toString().substr(4, 6)
     }
 
     return (

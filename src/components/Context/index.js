@@ -14,6 +14,17 @@ export const ChatEngineWrapper = props => {
     const [loadMoreMessages, setLoadMoreMessages] = useState(false)
     const [isBottomVisible, setIsBottomVisible] = useState(false)
 
+    const translate = (text, component, dom) => {
+        if (!props.translate) return (dom || text);
+
+        const translated = props.translate(text, component, dom);
+        if (!translated && typeof translated !== 'string') {
+            return (dom || text);
+        }
+
+        return (translated);
+    };
+
     const value = {
         connecting, setConnecting,
         conn, setConn,
@@ -25,7 +36,7 @@ export const ChatEngineWrapper = props => {
         typingCounter, setTypingCounter,
         loadMoreMessages, setLoadMoreMessages,
         isBottomVisible, setIsBottomVisible,
-        translate: props.translateCallback || (x => x),
+        translate,
     }
 
     return (

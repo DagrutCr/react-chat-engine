@@ -1,9 +1,12 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import { newChat } from '../../../../../actions/chats'
 import { TextInput } from '../../../../../components/ChatEngine/components/Input'
 import Button from '../../../../../components/ChatEngine/components/Button'
 
+import { ChatEngineContext } from 'react-chat-engine'
+
 const CreateChat = (props) => {
+    const { translate } = useContext(ChatEngineContext);
     const { conn } = props;
     const [title, setTitle] = useState('');
 
@@ -24,14 +27,14 @@ const CreateChat = (props) => {
     return (
         <div class='ce-ice-breaker-no-chat'>
             <form onSubmit={onSubmit}>
-                <b>No chat room found, start by creating one</b>
+                <b>{translate('No chat room found, start by creating one', 'CreateChat')}</b>
                 <br />
                 <TextInput
                     type="text"
-                    label="Chat room name"
+                    label={translate('Chat room name', 'CreateChat')}
                     handleChange={onChange}
                 />
-                <Button type="submit" value="Create" />
+                <Button type="submit" value={translate('Create', 'CreateChat')} />
             </form>
         </div>
     )

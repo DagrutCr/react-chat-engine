@@ -1,9 +1,10 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useContext } from 'react';
 import PropTypes from 'prop-types'
 
-import { editChat, TextInput } from 'react-chat-engine'
+import { editChat, TextInput, ChatEngineContext } from 'react-chat-engine'
 
 const NewMessageForm = props => {
+    const { translate } = useContext(ChatEngineContext);
     const didMountRef = useRef(false)
     const [state, setState] = useState({
         activeChat: null,
@@ -43,7 +44,7 @@ const NewMessageForm = props => {
     return (
         <form onSubmit={(e) => handleSubmit(e)} className='ce-chat-title-form'>
             <TextInput 
-                label="Rename this Chat" 
+                label={translate('Rename this Chat', 'NewMessageForm')}
                 value={state.value} 
                 default={props.chat.title}
                 handleChange={(e) => handleChange(e)} 
