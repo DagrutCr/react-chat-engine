@@ -22,7 +22,7 @@ const PhotosSettings = () => {
     return (
         <div style={{ borderTop: '1px solid #f0f0f0' }} className='ce-photo-section'>
             <SettingsBlock
-                label={translate('Photos', 'PhotosSettings')}
+                label={translate('Files', 'PhotosSettings')}
                 className='ce-section-title-container ce-photo-title-container'
             >
                 <div className='ce-photo-feed'>

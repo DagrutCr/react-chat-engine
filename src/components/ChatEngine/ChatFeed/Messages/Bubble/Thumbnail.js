@@ -1,8 +1,11 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 
 import { LoadingOutlined } from '@ant-design/icons'
 
+import { ChatEngineContext } from 'react-chat-engine'
+
 const Thumbnail = props => {
+    const { openAttachment } = useContext(ChatEngineContext);
     const [hovered, setHovered] = useState(false)
     const { attachment } = props
     const style={ 
@@ -20,7 +23,7 @@ const Thumbnail = props => {
 
     return (
         <img 
-            onClick={() => window.open(attachment.file)}
+            onClick={() => openAttachment(attachment, 'image')}
             onMouseEnter={() => setHovered(true)}
             onMouseLeave={() => setHovered(false)}
             src={attachment.file}

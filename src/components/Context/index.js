@@ -51,6 +51,14 @@ export const ChatEngineWrapper = props => {
         }
     };
 
+    const openAttachment = (attachment, type) => {
+        if (props.openAttachment) {
+            props.openAttachment(attachment, type);
+        } else {
+            window.open(attachment.file)
+        }
+    };
+
     const value = {
         connecting, setConnecting,
         conn, setConn,
@@ -64,6 +72,7 @@ export const ChatEngineWrapper = props => {
         isBottomVisible, setIsBottomVisible,
         translate,
         formatDateTime,
+        openAttachment,
     }
 
     return (
