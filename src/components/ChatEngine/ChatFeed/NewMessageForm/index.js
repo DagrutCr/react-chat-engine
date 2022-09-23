@@ -12,7 +12,8 @@ const NewMessageForm = () => {
     conn, 
     activeChat, 
     messages, 
-    setMessages 
+    setMessages,
+    translate,
   } = useContext(ChatEngineContext)
   
   const [iter, setIter] = useState(0) // Forces attachments update
@@ -72,6 +73,7 @@ const NewMessageForm = () => {
         onChange={handleChange.bind(this)}
         onSubmit={handleSubmit.bind(this)}
         onAttach={setAttachments.bind(this)}
+        translate={translate}
       />
     </div>
   );

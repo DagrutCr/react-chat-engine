@@ -57,6 +57,9 @@ const styles = {
         overflow: 'scroll',
         overflowX: 'hidden',
         borderLeft: '1px solid #afafaf',
-        backgroundColor: 'white'
+        backgroundColor: 'white',
+        flex: '1',
+        overflow: 'auto',
+        paddingBottom: '10px',
     }
 }

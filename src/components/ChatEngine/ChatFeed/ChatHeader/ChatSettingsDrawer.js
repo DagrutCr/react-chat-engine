@@ -50,7 +50,10 @@ const styles = {
         width: '100%',
         height: '100%',
         backgroundColor: 'white',
-        textAlign: 'left'
+        textAlign: 'left',
+
+        display: 'flex',
+        flexFlow: 'column',
     },
     closeIcon: {
         position: 'absolute',
