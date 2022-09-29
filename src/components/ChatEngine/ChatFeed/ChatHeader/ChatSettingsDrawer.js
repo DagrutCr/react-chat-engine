@@ -13,7 +13,7 @@ const ChatSettingsDrawer = props => {
     const allProps = {...props, ...context.conn}
 
     return (
-        <div> 
+        <div className="ce-chat-settings"> 
             { 
                 chatSettingsIsOpen &&
                 <div style={styles.drawerContainer}>
