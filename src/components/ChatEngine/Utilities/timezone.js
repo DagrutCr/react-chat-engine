@@ -3,7 +3,12 @@ export function getDateTime(date) {
         return new Date();
     }
 
-    return (new Date(date));
+    let dateObj = new Date(date);
+    if (isNaN(dateObj.getFullYear())) {
+        dateObj = new Date(date.replace(' ', 'T'));
+    }
+
+    return (dateObj);
 }
 
 export function formatTime(dateObj) {

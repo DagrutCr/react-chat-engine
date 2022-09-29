@@ -14,7 +14,7 @@ const { htmlToText } = require('html-to-text')
 
 const ChatCard = props => {
     const { chat } = props
-    const { conn, activeChat, setActiveChat, formatDateTime } = useContext(ChatEngineContext)
+    const { conn, activeChat, setActiveChat, formatDateTime, translate } = useContext(ChatEngineContext)
 
     if (_.isEmpty(chat) || props.loading) return <Loading />
     if (!conn || conn === null) return <div/>
@@ -27,7 +27,7 @@ const ChatCard = props => {
     if (!lastMessage) {
         lastMessage = chat.last_message.attachments.length > 0 ?
         `${chat.last_message.attachments.length} image${chat.last_message.attachments.length > 1 ? 's' : ''}` :
-        'Say hello!'
+        translate('Say hello!', 'ChatCard')
     }
 
     function didReadLastMessage(chat) {
