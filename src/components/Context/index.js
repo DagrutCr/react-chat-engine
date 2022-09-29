@@ -59,6 +59,8 @@ export const ChatEngineWrapper = props => {
         }
     };
 
+    const htmlMessageTransform = typeof props.htmlMessageTransform === 'function' ? props.htmlMessageTransform : null;
+
     const value = {
         connecting, setConnecting,
         conn, setConn,
@@ -73,6 +75,7 @@ export const ChatEngineWrapper = props => {
         translate,
         formatDateTime,
         openAttachment,
+        htmlMessageTransform,
     }
 
     return (

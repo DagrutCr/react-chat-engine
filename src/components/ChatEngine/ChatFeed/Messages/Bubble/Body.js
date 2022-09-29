@@ -1,13 +1,25 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import ReactHtmlParser from 'react-html-parser';
+import { ChatEngineContext } from 'react-chat-engine'
 
 const Body = props => {
-    let text = props.text ? props.text : ''
-    text = text.replaceAll("<p>", "<div>").replaceAll("</p>", "</div>")
-    text = text.replaceAll("<a ", `<a style="color: ${ props.myMessage ? 'white' : '#1890ff' };" `)
+    const { htmlMessageTransform } = useContext(ChatEngineContext)
+    let text = props.text ? props.text : '';
+    text = text
+        .replaceAll("<p>", "<div>")
+        .replaceAll("</p>", "</div>")
+        .replaceAll("<a ", `<a style="color: ${ props.myMessage ? 'white' : '#1890ff' };" `);
+
+    let parserOptions = {};
+    if (htmlMessageTransform) {
+        parserOptions.transform = htmlMessageTransform;
+    }
 
     return (
-        <div className='ce_message' dangerouslySetInnerHTML={{ __html: text }} />
-    ) 
+        <div className='ce_message'>
+            {ReactHtmlParser(text, parserOptions)}
+        </div>
+    );
 }
 
 export default Body
