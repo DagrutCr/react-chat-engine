@@ -13,7 +13,7 @@ const NewMessageForm = () => {
     activeChat, 
     messages, 
     setMessages,
-    translate,
+    userCallbacks: { translate, onMessageSent },
   } = useContext(ChatEngineContext)
   
   const [iter, setIter] = useState(0) // Forces attachments update
@@ -46,15 +46,24 @@ const NewMessageForm = () => {
     const data = { text, attachments, custom_json, sender_username, chat: activeChat, created }
 
     if (text.length > 0 || attachments.length > 0) {
-      sendMessage(conn, activeChat, data, () => {})
-    }
+      sendMessage(conn, activeChat, data, () => {});
 
+      let newMessages = {...messages}
+      newMessages[data.created] = data
+      setMessages(newMessages)
+      onMessageSent(
+        activeChat,
+        data.text,
+        {
+          createdAt: data.created,
+          attachments: data.attachments,
+          senderId: data.custom_json.sender_id,
+          username: data.sender_username,
+        }
+      );
+    }
     setValue('')
     setAttachments([])
-
-    let newMessages = {...messages}
-    newMessages[data.created] = data
-    setMessages(newMessages)
   }
 
   return (

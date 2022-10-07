@@ -16,7 +16,7 @@ import { setConfiguration } from 'react-grid-system';
 setConfiguration({ maxScreenClass: 'xl', gutterWidth: 0 });
 
 const ChatHeader = (props) => {
-    const { conn, chats, activeChat, translate, formatDateTime } = useContext(ChatEngineContext)
+    const { conn, chats, activeChat, userCallbacks: { translate, formatDateTime } } = useContext(ChatEngineContext)
 
     const chat = chats ? chats[activeChat] : undefined
     const otherPerson = chat && conn && chat.people.find(person => person.person.username !== conn.userName)

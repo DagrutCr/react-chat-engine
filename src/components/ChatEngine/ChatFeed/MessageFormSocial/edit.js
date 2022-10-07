@@ -7,7 +7,7 @@ import { Button, TextInput } from 'react-chat-engine'
 import { ChatEngineContext } from '../../../Context'
 
 const MessageEditForm = props => {
-  const { translate } = useContext(ChatEngineContext)
+  const { userCallbacks: { translate } } = useContext(ChatEngineContext)
   const [value, setValue] = useState('')
 
   function handleChange(event) {

@@ -22,9 +22,16 @@ const ChatEngine = props => {
   const context = useContext(ChatEngineContext)
   const { height } = props
   const propsAndContext = {...props, ...context}
+  const eventProps = Object.keys(props)
+    .filter((key) => (key.match(/^on[A-Z][a-z]/)))
+    .reduce((acc, key) => {
+      acc[key] = props[key];
+      return (acc);
+    }, {});
 
   return (
-    <div 
+    <div
+      {...eventProps}
       className='ce-chat-engine'
       style={{ textAlign: 'left', backgroundColor: 'white' }}
     >

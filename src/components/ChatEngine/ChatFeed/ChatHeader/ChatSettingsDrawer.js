@@ -9,7 +9,7 @@ import ChatSettings from '../../ChatSettings'
 const ChatSettingsDrawer = props => {
     const {chatSettingsIsOpen, setChatSettingsIsOpen} = props
     const context = useContext(ChatEngineContext)
-    const { translate } = context;
+    const { userCallbacks: { translate } } = context;
     const allProps = {...props, ...context.conn}
 
     return (

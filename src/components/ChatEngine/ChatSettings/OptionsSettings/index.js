@@ -5,7 +5,7 @@ import { Button, deleteChat, ChatEngineContext } from 'react-chat-engine'
 import SettingsBlock from '../SettingsBlock'
 
 const OptionsSettings = () => {
-    const { conn, chats, activeChat, translate } = useContext(ChatEngineContext)  
+    const { conn, chats, activeChat, userCallbacks: { translate } } = useContext(ChatEngineContext)  
     const chat = chats && chats[activeChat] 
 
     if (!chat) return <div />

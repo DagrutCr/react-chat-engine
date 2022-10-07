@@ -19,7 +19,7 @@ import { Row, Col, setConfiguration } from 'react-grid-system'
 setConfiguration({ maxScreenClass: 'xl' })
 
 const Message = props => {
-    const { formatDateTime } = useContext(ChatEngineContext)
+    const { userCallbacks: { formatDateTime } } = useContext(ChatEngineContext)
     const [hovered, setHovered] = useState(false)
 
     function renderReads() {

@@ -6,7 +6,7 @@ import Button from '../../../../../components/ChatEngine/components/Button'
 import { ChatEngineContext } from 'react-chat-engine'
 
 const CreateChat = (props) => {
-    const { translate } = useContext(ChatEngineContext);
+    const { userCallbacks: { translate } } = useContext(ChatEngineContext);
     const { conn } = props;
     const [title, setTitle] = useState('');
 

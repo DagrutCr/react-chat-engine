@@ -11,7 +11,7 @@ import ImagesInput from './ImagesInput'
 import MessageInput from './MessageInput'
 
 const MessageFormSocial = () => {
-  const { conn, activeChat, messages, setMessages, translate } = useContext(ChatEngineContext)
+  const { conn, activeChat, messages, setMessages, userCallbacks: { translate } } = useContext(ChatEngineContext)
 
   const [iter, setIter] = useState(0) // Forces attachments update
   const [value, setValue] = useState('')

@@ -3,7 +3,7 @@ import React, { useContext } from 'react'
 import { ChatEngineContext } from 'react-chat-engine'
 
 const IceBreaker = () => {
-    const { translate } = useContext(ChatEngineContext)
+    const { userCallbacks: { translate } } = useContext(ChatEngineContext)
     return (
         <div
             id='ce-ice-breaker-chat'

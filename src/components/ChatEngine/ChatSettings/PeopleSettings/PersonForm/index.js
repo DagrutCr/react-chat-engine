@@ -10,7 +10,7 @@ import { AutoCompleteInput } from 'react-chat-engine'
 import PersonOption from './PersonOption'
 
 const PersonForm = props => {
-  const { translate } = useContext(ChatEngineContext) 
+  const { userCallbacks: { translate } } = useContext(ChatEngineContext) 
   const [state, setState] = useState({
     value: '',
     others: []

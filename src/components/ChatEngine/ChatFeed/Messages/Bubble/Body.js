@@ -3,7 +3,7 @@ import ReactHtmlParser from 'react-html-parser';
 import { ChatEngineContext } from 'react-chat-engine'
 
 const Body = props => {
-    const { htmlMessageTransform } = useContext(ChatEngineContext)
+    const { userCallbacks: { htmlMessageTransform } } = useContext(ChatEngineContext)
     let text = props.text ? props.text : '';
     text = text
         .replaceAll("<p>", "<div>")

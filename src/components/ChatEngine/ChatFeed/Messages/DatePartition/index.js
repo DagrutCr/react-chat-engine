@@ -4,7 +4,7 @@ import { getDateTime } from '../../../Utilities/timezone'
 import { ChatEngineContext } from 'react-chat-engine'
 
 const DatePartition = props => {
-    const { formatDateTime } = useContext(ChatEngineContext)
+    const { userCallbacks: { formatDateTime } } = useContext(ChatEngineContext)
     const { lastCreated, created } = props
 
     function getDate(date) {

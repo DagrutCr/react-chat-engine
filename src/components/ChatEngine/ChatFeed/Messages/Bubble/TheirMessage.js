@@ -19,7 +19,7 @@ setConfiguration({ maxScreenClass: 'xl' })
 
 
 const TheirMessage = props => {
-    const { formatDateTime } = useContext(ChatEngineContext)
+    const { userCallbacks: { formatDateTime } } = useContext(ChatEngineContext)
     const [hovered, setHovered] = useState(false)
 
     function renderReads() {

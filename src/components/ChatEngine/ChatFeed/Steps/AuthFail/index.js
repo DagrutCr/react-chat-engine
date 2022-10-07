@@ -3,7 +3,7 @@ import React, { useContext } from 'react'
 import { ChatEngineContext } from 'react-chat-engine'
 
 const AuthFail = (props) => {
-    const { translate } = useContext(ChatEngineContext)
+    const { userCallbacks: { translate } } = useContext(ChatEngineContext)
     const project = props.projectID ? props.projectID : props.publicKey
     return (
         <div

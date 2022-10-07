@@ -8,7 +8,7 @@ import { LoadingOutlined } from '@ant-design/icons'
 import { ChatEngineContext } from 'react-chat-engine'
 
 const FileView = props => {
-    const { openAttachment } = useContext(ChatEngineContext);
+    const { userCallbacks: { openAttachment } } = useContext(ChatEngineContext);
     const [hovered, setHovered] = useState(false)
     const { attachment } = props
     const style={ 

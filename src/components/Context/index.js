@@ -60,6 +60,7 @@ export const ChatEngineWrapper = props => {
     };
 
     const htmlMessageTransform = typeof props.htmlMessageTransform === 'function' ? props.htmlMessageTransform : null;
+    const onMessageSent = typeof props.onMessageSent === 'function' ? props.onMessageSent : null;
 
     const value = {
         connecting, setConnecting,
@@ -72,10 +73,13 @@ export const ChatEngineWrapper = props => {
         typingCounter, setTypingCounter,
         loadMoreMessages, setLoadMoreMessages,
         isBottomVisible, setIsBottomVisible,
-        translate,
-        formatDateTime,
-        openAttachment,
-        htmlMessageTransform,
+        userCallbacks: {
+            translate,
+            formatDateTime,
+            openAttachment,
+            htmlMessageTransform,
+            onMessageSent,
+        },
     }
 
     return (

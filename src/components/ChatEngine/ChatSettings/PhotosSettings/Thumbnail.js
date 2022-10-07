@@ -6,7 +6,7 @@ import { getFileName, isImage } from '../../ChatFeed/Messages/Bubble/file'
 import { ChatEngineContext } from 'react-chat-engine'
 
 const Thumbnail = props => {
-    const { openAttachment } = useContext(ChatEngineContext);
+    const { userCallbacks: { openAttachment } } = useContext(ChatEngineContext);
     const { attachment } = props 
 
     if (!attachment) { return <div /> }

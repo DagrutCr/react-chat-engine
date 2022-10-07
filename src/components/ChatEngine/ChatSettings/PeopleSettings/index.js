@@ -8,7 +8,7 @@ import PersonForm from './PersonForm'
 import SettingsBlock from '../SettingsBlock'
 
 const PeopleSettings = () => {
-    const { conn, chats, activeChat, translate } = useContext(ChatEngineContext)  
+    const { conn, chats, activeChat, userCallbacks: { translate } } = useContext(ChatEngineContext)  
     const chat = chats && chats[activeChat] 
 
     if (!chat || chat.is_direct_chat) { return <div /> }

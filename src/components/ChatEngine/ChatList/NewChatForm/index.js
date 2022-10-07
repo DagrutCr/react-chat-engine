@@ -7,7 +7,7 @@ import { ChatEngineContext } from '../../../Context'
 import { newChat, Button, TextInput } from 'react-chat-engine'
 
 const NewChatForm = (props) => {
-  const { conn, translate } = useContext(ChatEngineContext)
+  const { conn, userCallbacks: { translate } } = useContext(ChatEngineContext)
   const [value, setValue] = useState('')
   const [selected, setSelected] = useState(false)
   

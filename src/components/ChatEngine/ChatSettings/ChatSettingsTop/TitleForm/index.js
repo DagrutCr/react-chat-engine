@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import { editChat, TextInput, ChatEngineContext } from 'react-chat-engine'
 
 const NewMessageForm = props => {
-    const { translate } = useContext(ChatEngineContext);
+    const { userCallbacks: { translate } } = useContext(ChatEngineContext);
     const didMountRef = useRef(false)
     const [state, setState] = useState({
         activeChat: null,
