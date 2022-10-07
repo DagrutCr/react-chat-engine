@@ -7,7 +7,7 @@ import { stringToColor } from '../../Utilities/colorMapping'
 const IsTyping = () => {
     const didMountRef = useRef(false)
     const [currentTime, setCurrentTime] = useState(Date.now())
-    const { conn, activeChat, typingCounter } = useContext(ChatEngineContext)
+    const { conn, activeChat, typingCounter, userCallbacks: { translate } } = useContext(ChatEngineContext)
     const typers = typingCounter && typingCounter[activeChat] ? typingCounter[activeChat] : []
 
     useEffect(() => {
@@ -32,7 +32,7 @@ const IsTyping = () => {
                                 className='ce-user-typing-text'
                                 style={{ color: stringToColor(username), padding: '2px', paddingLeft: '12px' }}
                             >
-                                {`${username} is typing...`}
+                                {`${username} ${translate('is typing...', 'IsTyping')}`}
                             </div>
                         )
 
