@@ -24,20 +24,22 @@ const SettingsBlock = (props) => {
                     { props.label }
                 </div>
 
-                <LeftOutlined 
-                    style={{
-                        float: 'right',
-                        position: 'relative',
-                        bottom: '30px',
-                        right: '12px',
-                        transform: collapsed ? `rotate(0deg)` : `rotate(-90deg)`,
-                        transition: `transform 100ms`,
-                    }} 
-                /> 
+                {!props.alwaysOpen && (
+                    <LeftOutlined 
+                        style={{
+                            float: 'right',
+                            position: 'relative',
+                            bottom: '30px',
+                            right: '12px',
+                            transform: collapsed ? `rotate(0deg)` : `rotate(-90deg)`,
+                            transition: `transform 100ms`,
+                        }} 
+                    />
+                )}
             </div>
 
             <div>
-                { !collapsed && props.children }
+                {(!collapsed || props.alwaysOpen) && props.children}
             </div>
         </div>
     )

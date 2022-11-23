@@ -15,6 +15,7 @@ const OptionsSettings = () => {
             <SettingsBlock 
                 id='ce-options-drop-down'
                 label={translate('Options', 'OptionsSettings')}
+                alwaysOpen
             >
                 <div>
                     <div style={{ height: '8px' }} />
