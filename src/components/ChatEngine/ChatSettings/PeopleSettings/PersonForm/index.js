@@ -55,6 +55,7 @@ const PersonForm = props => {
         onFocus={() => getOthers()}
         handleChange={(value) => handleChange(value)} 
         renderOption={(option) => renderOption(option)}
+        max={-1}
       />
     </div>
   )

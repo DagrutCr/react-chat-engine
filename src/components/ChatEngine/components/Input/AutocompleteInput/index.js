@@ -32,7 +32,7 @@ export default class AutoCompleteInput extends Component {
         const results = []
 
         this.props.options.map(option => {
-            if (JSON.stringify(option).toLowerCase().indexOf(this.props.value.toLowerCase()) !== -1 && count < max) {
+            if (JSON.stringify(option).toLowerCase().indexOf(this.props.value.toLowerCase()) !== -1 && (count < max || max < 0)) {
                 count = count + 1
                 results.push(option)
             }
