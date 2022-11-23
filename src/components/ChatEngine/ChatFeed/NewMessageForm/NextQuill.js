@@ -54,7 +54,11 @@ export default class FormHtmlEditor extends Component {
                     <div 
                         className='ce-send-button-container'
                         onClick={this.props.onSubmit.bind(this)}
-                        style={{ position: 'absolute', right: '5px', bottom: '37px' }} 
+                        style={{
+                            position: 'absolute',
+                            right: '5px',
+                            bottom: '1px',
+                        }} 
                     >
                         <SendButton />
                     </div>
