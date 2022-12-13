@@ -16,7 +16,7 @@ import { setConfiguration } from 'react-grid-system';
 // TODO: One off imports for Teams tutorial
 import { getLatestMessages } from 'react-chat-engine'
  
-setConfiguration({ maxScreenClass: 'xl', gutterWidth: 0 });
+setConfiguration({ maxScreenClass: 'xs', gutterWidth: 0 });
 
 const ChatEngine = props => {
   const context = useContext(ChatEngineContext)
