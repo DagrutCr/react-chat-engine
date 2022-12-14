@@ -9,7 +9,7 @@ import { animateScroll } from "react-scroll"
 const ScrollDownBar = (props) => {
     const didMountRef = useRef(false)
     const [isVisible, setIsVisible] = useState(false)
-    const { conn, isBottomVisible } = useContext(ChatEngineContext)
+    const { conn, isBottomVisible, userCallbacks: { translate } } = useContext(ChatEngineContext)
     const { chat } = props
 
     useEffect(() => {
@@ -42,21 +42,30 @@ const ScrollDownBar = (props) => {
         <div
             style={{
                 zIndex: '1',
-                bottom: '94px',
-                left: 'calc(50% - 78px)',
+                bottom: '100px', 
+                left: '0',
+                right: '0',
                 position: 'absolute',
-                fontSize: '15px',
-                padding: '10px 22px',
-                color: 'white',
-                backgroundColor: '#389e0d',
-                borderRadius: '1.3em',
-                cursor: 'pointer',
+                textAlign: 'center',
             }}
-            id='ce-scroll-down-bar'
-            onClick={() => animateScroll.scrollToBottom({ duration: 333, containerId: "ce-feed-container" })}
         >
-            <CaretDownOutlined />
-            {conn.userName ? ' Unread Messages' : ' Scroll to Bottom'}
+            <div
+                style={{
+                    fontSize: '15px',
+                    padding: '10px 22px',
+                    color: 'white',
+                    display: 'inline-block',
+                    backgroundColor: '#389e0d',
+                    borderRadius: '1.3em',
+                    cursor: 'pointer',
+                }}
+                id='ce-scroll-down-bar'
+                onClick={() => animateScroll.scrollToBottom({ duration: 333, containerId: "ce-feed-container" })}
+            >
+                <CaretDownOutlined />
+                {' '}
+                {conn.userName ? translate('Unread Messages', 'ScrollDownBar') : translate('Scroll to Bottom', 'ScrollDownBar')}
+            </div>
         </div>
     )
 }

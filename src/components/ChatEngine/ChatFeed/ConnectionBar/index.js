@@ -7,7 +7,7 @@ import { SyncOutlined } from '@ant-design/icons'
 const ConnectionBar = props => {
     const didMountRef = useRef(false)
     const [isVisible, setIsVisible] = useState(false)
-    const { connecting } = useContext(ChatEngineContext)
+    const { connecting, userCallbacks: { translate } } = useContext(ChatEngineContext)
 
     useEffect(() => {
         if (!didMountRef.current) {
@@ -22,21 +22,29 @@ const ConnectionBar = props => {
     if (!connecting || !isVisible) return <div />
 
     return (
-        <div 
-            style={{ 
+        <div
+            style={{
                 zIndex: '1',
-                bottom: '66px', 
-                left: 'calc(50% - 78px)',
-                position: 'absolute', 
-                fontSize: '15px',
-                padding: '10px 22px', 
-                color: 'white',
-                backgroundColor: '#fa8c16',
-                borderRadius: '1.3em',
+                bottom: '100px', 
+                left: '0',
+                right: '0',
+                position: 'absolute',
+                textAlign: 'center',
             }}
-            id='ce-connecting-popup'
         >
-            <SyncOutlined spin />{' '}Connecting
+            <span
+                style={{
+                    fontSize: '15px',
+                    padding: '10px 22px', 
+                    color: 'white',
+                    display: 'inline-block',
+                    backgroundColor: '#fa8c16',
+                    borderRadius: '1.3em',
+                }}
+                id='ce-connecting-popup'
+            >
+                <SyncOutlined spin />{' '}{translate('Connecting', 'ConnectionBar')}
+            </span>
         </div>
     )
 }
