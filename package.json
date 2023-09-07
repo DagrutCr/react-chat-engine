@@ -42,13 +42,13 @@
     "dist"
   ],
   "dependencies": {
-    "@ant-design/icons": "git+https://github.com/DagrutCr/ant-design-icons.git#0149e25dd86562974c0f50f51cffc6eb79da5b04",
+    "@ant-design/icons": "git+https://github.com/DagrutCr/ant-design-icons.git#d59290d9ea11979289b2dc104aed26d7cc34b1a4",
     "axios": "^0.21.1",
     "html-to-text": "^7.1.1",
     "lodash": "4.17.21",
     "nextjs-websocket": "^1.0.11",
     "react-grid-system": "^8.1.9",
-    "react-html-parser": "git+https://github.com/DagrutCr/react-html-parser.git#50729b71a7da3d4d37385ea9b6a1aaac02eb4b16",
+    "react-html-parser": "git+https://github.com/DagrutCr/react-html-parser.git#a592dd3e49e687cf905e7b82e90d24b0d9335a8b",
     "react-quill": "^2.0.0",
     "react-scroll": "^1.8.9",
     "react-spring": "^9.7.2",
