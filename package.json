@@ -42,7 +42,7 @@
     "dist"
   ],
   "dependencies": {
-    "@ant-design/icons": "git+https://github.com/DagrutCr/ant-design-icons.git#f2c9bfa997d6c27696358a66f9918721017e6aed",
+    "@ant-design/icons": "git+https://github.com/DagrutCr/ant-design-icons.git#890ef81b9976f67f4f274603f68ddbd112ef6338",
     "axios": "^0.21.1",
     "html-to-text": "^7.1.1",
     "lodash": "4.17.21",
