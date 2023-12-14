@@ -23,7 +23,7 @@ const ChatEngine = props => {
   const { height } = props
   const propsAndContext = {...props, ...context}
   const eventProps = Object.keys(props)
-    .filter((key) => (key.match(/^on[A-Z][a-z]/)))
+    .filter((key) => (key.match(/^on[A-Z][a-z]/)) && key !== 'onMessageSent')
     .reduce((acc, key) => {
       acc[key] = props[key];
       return (acc);

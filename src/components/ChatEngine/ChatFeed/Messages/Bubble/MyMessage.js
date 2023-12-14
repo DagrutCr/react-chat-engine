@@ -22,23 +22,23 @@ const Message = props => {
     const { userCallbacks: { formatDateTime } } = useContext(ChatEngineContext)
     const [hovered, setHovered] = useState(false)
 
-    function renderReads() {
-        const { chat, message } = props
+    // function renderReads() {
+    //     const { chat, message } = props
 
-        if (!chat) { return <div /> }
+    //     if (!chat) { return <div /> }
 
-        return chat.people.map((chatPerson, index) => {
-            return (
-                <Dot
-                    key={`read_${index}`}
-                    avatar={chatPerson.person.avatar}
-                    username={chatPerson.person.username}
-                    visible={message.id === chatPerson.last_read}
-                    style={{ float: 'right', marginLeft: '4px' }}
-                />
-            )
-        })
-    }
+    //     return chat.people.map((chatPerson, index) => {
+    //         return (
+    //             <Dot
+    //                 key={`read_${index}`}
+    //                 avatar={chatPerson.person.avatar}
+    //                 username={chatPerson.person.username}
+    //                 visible={message.id === chatPerson.last_read}
+    //                 style={{ float: 'right', marginLeft: '4px' }}
+    //             />
+    //         )
+    //     })
+    // }
 
     function renderImages() {
         const { message } = props
@@ -135,9 +135,9 @@ const Message = props => {
 
                 <Col xs={1} sm={2} md={3} />
 
-                <Col xs={12} className='ce-reads-row ce-my-reads-row'>
+                {/* <Col xs={12} className='ce-reads-row ce-my-reads-row'>
                     {renderReads()}
-                </Col>
+                </Col> */}
             </Row>
         </div>
     )
