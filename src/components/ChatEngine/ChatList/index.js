@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useRef, useState } from 'react'
+import React, { useContext, useEffect, useMemo, useRef, useState } from 'react'
 
 import { ChatEngineContext, getLatestChats, getChatsBefore } from 'react-chat-engine'
 
@@ -14,6 +14,7 @@ const interval = 33
 
 const ChatList = props => {
     const didMountRef = useRef(false)
+    const [latestChatLoading, setLatestChatLoading] = useState(false);
     const [loadChats, setLoadChats] = useState(false) // true, false, or loading
     const [hasMoreChats, setHasMoreChats] = useState(true)
     const { conn, chats, setChats, setActiveChat } = useContext(ChatEngineContext)
@@ -24,16 +25,22 @@ const ChatList = props => {
         [{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}]
     )
 
+    const anyLoading = useMemo(() => (
+        !!(loadChats || latestChatLoading)
+    ), [loadChats, latestChatLoading]);
+
     useEffect(() => {
         if (!didMountRef.current) {
             didMountRef.current = true
 
+            setLatestChatLoading(true);
             getLatestChats(
                 props, 
                 interval, 
                 (chats) => {
                     onGetChats(chats)
                     chats.length > 0 && setActiveChat(chats[0].id)
+                    setLatestChatLoading(false);
                 }
             )
         }
@@ -79,9 +86,9 @@ const ChatList = props => {
                 return (
                     <div 
                         key={`chat_${index}`}
-                        onClick={() => props.onChatClick && props.onChatClick(chat.id)}
+                        onClick={() => !anyLoading && props.onChatClick && props.onChatClick(chat.id)}
                     >
-                        <ChatCard chat={chat} />
+                        <ChatCard chat={chat} spinner={anyLoading} />
                     </div>
                 )
             }

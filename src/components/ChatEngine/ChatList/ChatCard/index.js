@@ -17,6 +17,20 @@ const ChatCard = props => {
     const { conn, activeChat, setActiveChat, userCallbacks: { formatDateTime, translate } } = useContext(ChatEngineContext)
 
     if (_.isEmpty(chat) || props.loading) return <Loading />
+    const spinnerDiv = !props.spinner ? false : (
+        <div
+            style={{
+                display: 'inline-block',
+                border: '10px solid #f3f3f3',
+                borderTop: '10px solid #3498db',
+                borderRadius: '50%',
+                width: '1.5em',
+                height: '1.5em',
+                marginRight: '0.3em',
+                animation: 'rotate360 1s linear infinite',
+            }}
+        />
+    );
     if (!conn || conn === null) return <div/>
 
     const extraStyle = activeChat === chat.id ? styles.activeChat : {}
@@ -48,7 +62,7 @@ const ChatCard = props => {
     return (
         <Boop triggers={['onClick', 'onMouseEnter']} x={3} timing={60} width="100%">
             <div 
-                onClick={() => setActiveChat(chat.id)}
+                onClick={() => !props.spinner && setActiveChat(chat.id)}
                 style={{ ...styles.chatContainer, ...extraStyle }}
                 className={`ce-chat-card ${activeChat === chat.id && 'ce-active-chat-card'}`}
             >
@@ -64,6 +78,7 @@ const ChatCard = props => {
                             display: 'inline-block' 
                         }}
                     >
+                        {spinnerDiv}
                         { title }
                     </div>
                     
