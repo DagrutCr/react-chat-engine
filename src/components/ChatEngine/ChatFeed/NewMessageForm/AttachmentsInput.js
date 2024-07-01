@@ -38,6 +38,7 @@ const AttachmentsInput = props => {
                 id="files"
                 style={{ visibility: "hidden" }}
                 type="file"
+                accept="image/*,document/*,application/*,audio/*"
                 onChange={(e) => onSelect(e)}
                 onClick={(e) => e.target.value = null}
             />
